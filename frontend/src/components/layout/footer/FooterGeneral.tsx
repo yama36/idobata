@@ -14,7 +14,7 @@ const FooterGeneral = () => {
             className="text-zinc-500 text-xs leading-6 tracking-[0.025em]"
             style={{ fontFamily: "BIZ UDPGothic" }}
           >
-            © 2025 デジタル民主主義2030 | コンテンツ内容は作成者に帰属します
+            © 2025 デジタル民主主義2030（idobata）. 改変版 (2025). コンテンツ内容は作成者に帰属します
           </div>
 
           {/* 右側: リンクエリア */}
@@ -61,7 +61,7 @@ const FooterGeneral = () => {
             className="text-center text-zinc-500 text-xs leading-6 tracking-[0.025em]"
             style={{ fontFamily: "BIZ UDPGothic" }}
           >
-            © 2025 デジタル民主主義2030
+            © 2025 デジタル民主主義2030（idobata）. 改変版 (2025).
             <br />
             コンテンツ内容は作成者に帰属します
           </div>

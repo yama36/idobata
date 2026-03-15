@@ -55,7 +55,7 @@ const Header: React.FC = () => {
           >
             {loading
               ? "..."
-              : siteConfig?.title || "XX党みんなの政策フォーラム"}
+              : siteConfig?.title || "みんなの対話の場"}
           </Link>
           <div className="flex items-center gap-1">
             <span className="text-[8px] font-bold text-[#94B9F9] leading-[2em] tracking-[0.0375em]">

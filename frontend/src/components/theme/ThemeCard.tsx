@@ -7,7 +7,7 @@ interface ThemeCardProps {
 const ThemeCard = ({
   title,
   description,
-  tags = ["政策", "社会保障"],
+  tags = ["話し合い", "暮らし"],
 }: ThemeCardProps) => {
   return (
     <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-[#94B9F9] to-[#9CE0E5] p-6">

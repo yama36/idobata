@@ -4,7 +4,7 @@
 
 ## 概要
 
-現在、サイト名は `frontend/src/components/layout/Header.tsx` に "XX 党 みんなの政策フォーラム" としてハードコードされています。この機能では、管理者がサイト名やその他の設定を変更できるようにします。
+現在、サイト名は `frontend/src/components/layout/Header.tsx` にデフォルトで "みんなの対話の場" が表示されます。この機能では、管理者がサイト名やその他の設定を変更できます。
 
 ## 実装内容
 
@@ -52,9 +52,9 @@ export const getSiteConfig = async (req, res) => {
     // If no config exists, create a default one
     if (!siteConfig) {
       siteConfig = await SiteConfig.create({
-        title: "XX党 みんなの政策フォーラム",
+        title: "みんなの対話の場",
         aboutMessage:
-          "# このサイトについて\n\nこちらは政策フォーラムのサイトです。",
+          "# このサイトについて\n\nこのサイトは、テーマに沿って意見を出し合い、話し合いの内容をまとめるための場です。",
       });
     }
 
@@ -476,7 +476,7 @@ export const SiteConfigProvider: React.FC<{ children: React.ReactNode }> = ({
           // Set default title if API fails
           setSiteConfig({
             _id: "default",
-            title: "XX党 みんなの政策フォーラム",
+            title: "みんなの対話の場",
             aboutMessage: "",
           });
         }
@@ -530,7 +530,7 @@ const Header = () => {
   }
   <Link to="/top">
     <h1 className="text-base font-semibold text-center">
-      {siteConfig?.title || "XX党 みんなの政策フォーラム"}
+      {siteConfig?.title || "みんなの対話の場"}
     </h1>
   </Link>;
 

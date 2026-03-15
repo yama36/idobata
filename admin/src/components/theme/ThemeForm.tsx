@@ -157,13 +157,13 @@ const ThemeForm: FC<ThemeFormProps> = ({ theme, isEdit = false }) => {
 
     if (result.isErr()) {
       console.error("Failed to generate report:", result.error);
-      setQuestionsError("市民意見レポート例の生成に失敗しました。");
+      setQuestionsError("参加者意見レポート例の生成に失敗しました。");
       setIsGeneratingReports((prev) => ({ ...prev, [questionId]: false }));
       return;
     }
 
     setSuccessMessage(
-      "市民意見レポート例の生成を開始しました。生成には数分かかる場合があります。"
+      "参加者意見レポート例の生成を開始しました。生成には数分かかる場合があります。"
     );
     setIsGeneratingReports((prev) => ({ ...prev, [questionId]: false }));
   };
@@ -598,7 +598,7 @@ const ThemeForm: FC<ThemeFormProps> = ({ theme, isEdit = false }) => {
                         scope="col"
                         className="px-6 py-3 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider"
                       >
-                        市民意見レポート
+                        参加者意見レポート
                       </th>
                     </tr>
                   </thead>

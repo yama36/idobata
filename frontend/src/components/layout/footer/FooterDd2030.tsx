@@ -14,13 +14,13 @@ const FooterDd2030 = () => {
                 {/* ロゴマーク部分 */}
                 <img
                   src="/images/dd2030-logomark.svg"
-                  alt="デジタル民主主義2030 ロゴマーク"
+                  alt="idobata ロゴマーク"
                   className="w-[75px] h-[81px]"
                 />
                 {/* ロゴタイプ部分 */}
                 <img
                   src="/images/dd2030-logotype.svg"
-                  alt="デジタル民主主義2030"
+                  alt="idobata"
                   className="w-[84px] h-[74px]"
                 />
               </div>
@@ -31,7 +31,7 @@ const FooterDd2030 = () => {
           <div className="flex-1 space-y-4">
             {/* 説明テキスト */}
             <ProjectDescriptionText className="text-[#27272A]">
-              2030年には、情報技術により民主主義のあり方はアップデートされており、一人ひとりの声が政治・行政に届き、適切に合意形成・政策反映されていくような社会が当たり前になる、──そんな未来を目指して立ち上げられたのがデジタル民主主義2030プロジェクトです。
+              このサイトは、話し合いや合意形成のための idobata で動いています。
             </ProjectDescriptionText>
 
             {/* ボタンエリア */}

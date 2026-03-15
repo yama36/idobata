@@ -36,7 +36,7 @@ const FooterIdobata = () => {
             <div className="flex-1 space-y-4">
               {/* テキスト */}
               <ProjectDescriptionText className="text-zinc-800">
-                いどばたビジョンは、デジタル民主主義2030プロジェクトから生まれたオープンソース（OSS）アプリケーションです。
+                いどばたビジョンは、話し合いや合意形成のためのオープンソース（OSS）アプリケーションです。
                 <span className="hidden md:inline">
                   <br />
                 </span>

@@ -100,7 +100,7 @@ const HeroSection = ({ latestQuestions = [] }: HeroSectionProps) => {
           <p className="text-md text-foreground font-bold mb-4 max-w-2xl mx-auto leading-relaxed">
             お題を選んで対話をはじめてください。
             <br />
-            対話内容は自動でレポートにまとめられ、政策立案に活かされます。
+            対話内容は自動でレポートにまとめられ、話し合いのまとめに活かされます。
           </p>
 
           <div className="flex flex-col items-center gap-4">

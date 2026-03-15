@@ -6,9 +6,9 @@ export const getSiteConfig = async (req, res) => {
 
     if (!siteConfig) {
       siteConfig = await SiteConfig.create({
-        title: "XX党 みんなの政策フォーラム",
+        title: "みんなの対話の場",
         aboutMessage:
-          "# このサイトについて\n\nこちらは政策フォーラムのサイトです。",
+          "# このサイトについて\n\nこのサイトは、テーマに沿って意見を出し合い、話し合いの内容をまとめるための場です。誰でも自由に参加し、対話に加わることができます。",
       });
     }
 
