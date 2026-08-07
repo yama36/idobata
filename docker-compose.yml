@@ -10,7 +10,7 @@ services:
       # Exclude node_modules from the host mount to use the container's node_modules
       - /app/idea-discussion/backend/node_modules
     ports:
-      - "3000:3000" # Expose backend API port
+      - "127.0.0.1:3000:3000" # Expose backend API port (loopback only)
     depends_on:
       - mongo
     env_file:
@@ -43,7 +43,7 @@ services:
       # Add node_modules volume
       - /app/node_modules
     ports:
-      - "5174:5173" # Expose Vite dev server port (Host: 5174, Container: 5173)
+      - "127.0.0.1:5174:5173" # Expose Vite dev server port (Host: 5174, Container: 5173; loopback only)
     command: sh -c "npm install && npm run dev -- --host 0.0.0.0" # Install deps if needed and run dev server
     env_file:
       - .env # Load environment variables from .env file
@@ -80,7 +80,7 @@ services:
       dockerfile: ./policy-edit/backend/Dockerfile # Specify Dockerfile path relative to new context
       target: production # Build the production stage
     ports:
-      - "3001:3001" # Expose backend API port
+      - "127.0.0.1:3001:3001" # Expose backend API port (loopback only)
     env_file:
       - .env # Load environment variables from .env file
     environment:
@@ -97,7 +97,7 @@ services:
     container_name: postgres-policy-dev
     image: postgres:latest
     ports:
-      - "5433:5432" # Expose to host port 5433 to avoid conflict if local 5432 is used
+      - "127.0.0.1:5433:5432" # Expose to host port 5433 (loopback only; avoid conflict if local 5432 is used)
     environment:
       POSTGRES_USER: ${POSTGRES_USER:-postgres}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-password}
@@ -120,7 +120,7 @@ services:
       # Add node_modules volume
       - /app/node_modules
     ports:
-      - "5173:5173" # idea-discussion/backendのCORS設定に合わせたポート
+      - "127.0.0.1:5173:5173" # idea-discussion/backendのCORS設定に合わせたポート (loopback only)
     command: sh -c "npm install && npm run dev -- --host 0.0.0.0"
     env_file:
       - .env
@@ -134,7 +134,7 @@ services:
     container_name: mongo-dev
     image: mongo:latest
     ports:
-      - "27017:27017" # Expose MongoDB port to host (optional, for external tools)
+      - "127.0.0.1:27017:27017" # Expose MongoDB port to host (loopback only; optional, for external tools)
     volumes:
       - mongo_data:/data/db # Persist data using a named volume
 
@@ -147,7 +147,7 @@ services:
       - ./admin:/app
       - /app/node_modules
     ports:
-      - "5175:5175"
+      - "127.0.0.1:5175:5175"
     command: sh -c "npm install && npm run dev -- --host 0.0.0.0"
     env_file:
       - .env
@@ -163,7 +163,7 @@ services:
     build:
       context: ./python-service
     ports:
-      - "8000:8000" # Expose port for debugging
+      - "127.0.0.1:8000:8000" # Expose port for debugging (loopback only)
     environment:
       - OPENAI_API_KEY=${OPENAI_API_KEY} # Pass from host environment
     volumes:
@@ -173,6 +173,7 @@ services:
   nginx:
     container_name: nginx-prod
     image: nginx:latest
+    # 80/443 は LAN に出す唯一の口（実機確認用のフロント入口）。他サービスは 127.0.0.1 限定。
     ports:
       - "80:80"
       - "443:443" # Uncomment if you configure SSL in nginx.conf
